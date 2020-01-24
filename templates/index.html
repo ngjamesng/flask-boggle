@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Boggle</title>
+</head>
+
+<body>
+  <section id="game-board-container">
+    <table>
+      <tbody>
+        {% for row in board %}
+          <tr>
+            {% for letter in row %}
+              <td>{{ letter }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section id="scores-container">
+    <div> High Score <span id="high-score"></span>in <span id="play-count"></span>plays</div>
+    <div> Score <span id="current-score"></span>Seconds Left: <span id="timer"></span></div>
+  </section>
+  
+  <section id="form-container">
+    <form action="/" method="POST">
+      <input type="text">
+      <button>Enter</button>
+    </form>
+  </section>
+
+  <section id="flash-container">
+    {% for msg in get_flashed_messages() %}
+      <p>{{ msg }}</p>
+    {% endfor %}
+  </section>
+
+  <section id="words-container">
+    <ul></ul>
+  </section>
+</body>
+</html>
