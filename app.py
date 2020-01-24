@@ -15,3 +15,10 @@ def display_board():
     session['board'] = board
 
     return render_template('index.html', board=board)
+
+@app.route('/', methods=["POST"])
+def submit_word():
+    word_input = request.json['word-input']
+    return word_input
+
+
