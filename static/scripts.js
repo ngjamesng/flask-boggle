@@ -13,12 +13,22 @@ $wordForm.on("submit", async function(evt) {
 	let word = $wordInput.val();
 	response = await axios.post("/", { "word-input": word });
 	// word_validity = await axios.get()
-	console.log("message: ", response.data);
-  showMessage(response.data.result);
-
+  console.log("message: ", response.data);
+  let result = response.data.result;
+  let responseWord = response.data.word
+	showMessage(responseWord, result);
 });
 
-function showMessage(message) {
-	let messageDiv = $(`<div>${message}</div>`);
+function showMessage(word_input, result) {
+	let msg;
+	if (result == "ok") {
+		msg = `added: ${word_input}`;
+	} else if (result === "not-on-board") {
+		msg = `${word_input} is not a valid word on this board`;
+	} else if (result === "not-word") {
+		msg = `${word_input} is not a valid English word`;
+	}
+
+	let messageDiv = $(`<div>${msg}</div>`);
 	$messageContainer.empty().append(messageDiv);
 }

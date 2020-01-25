@@ -36,7 +36,7 @@ def submit_word():
     elif result_value == "not-word":
         msg = f"{word_input} is not a valid English word"
     # return jsonify("result": msg)
-    return jsonify(result=result_value)
+    return jsonify(word=word_input, result=result_value)
     #  not a valid english word
     # added: "word"
     # not a valid word on this board
