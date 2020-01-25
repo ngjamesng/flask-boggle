@@ -31,15 +31,17 @@
   
   <section id="form-container">
     <form id="word-form" action="/" method="POST">
-      <input id="word-input" type="text" name="word-input">
+      <input id="word-input" type="text" name="word-input" required>
       <button>Enter</button>
     </form>
   </section>
 
-  <section id="flash-container">
-    {% for msg in get_flashed_messages() %}
+
+  <section id="message-container">
+    <!-- {% for msg in get_flashed_messages() %}
       <p>{{ msg }}</p>
-    {% endfor %}
+    {% endfor %} -->
+    
   </section>
 
   <section id="words-container">
